@@ -34,7 +34,8 @@ test_data  <- data[-train_index, ]
 # Apply Kernel PCA with Polynomial kernel
 set.seed(42)
 kpca_model <- kpca(~., data = train_data[, c("feature_1", "feature_2")],
-                   kernel = "polydot", kpar = list(scale = 5),
+                   kernel = "polydot",
+                   kpar = list(degree = 3, scale = 1, offset = 5),
                    features = 2)
 
 # Project the test data onto the principal components
